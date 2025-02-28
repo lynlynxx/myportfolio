@@ -1,0 +1,5 @@
+{
+    "explorer.excludeGitIgnore": true,
+    "npm.enableRunFromFolder": true,
+    "explorer.fileNesting.enabled": true
+}

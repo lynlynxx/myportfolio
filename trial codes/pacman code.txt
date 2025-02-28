@@ -1,0 +1,183 @@
+pacman code
+
+import pygame
+from sys import exit
+
+
+pygame.init()
+screen = pygame.display.set_mode((470,553))
+pygame.display.set_caption("Jerlyn Game")
+clock = pygame.time.Clock()
+testfonts = pygame.font.Font(None, 30)
+
+
+bg = pygame.image.load('Pacpac.jpg')
+playerImg = pygame.image.load('player.png').convert_alpha()
+playerImg_rect = playerImg.get_rect(topleft = (45,68))
+
+
+enemy1 = pygame.image.load('enemy1.jpg')
+enemy2 = pygame.image.load('enemy2.png').convert_alpha()
+enemy3 = pygame.image.load('enemy3.jpg')
+
+texttSurface = testfonts.render('PACMAN',False,'purple')
+
+running = True
+
+while running:
+
+    screen.fill(('purple')) 
+
+
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            pygame.quit()
+            exit()
+
+
+    screen.blit(bg,(1,0))
+    screen.blit(playerImg, playerImg_rect)
+    screen.blit(enemy1,(200,259))
+    screen.blit(enemy2,(230,259))
+    screen.blit(enemy3,(258,259))
+    screen.blit(texttSurface,(198,527))
+
+
+    for event in pygame.event.get():
+        run = False
+
+    keys = pygame.key.get_pressed()
+   
+    if keys[pygame.K_LEFT]:
+       playerImg_rect.x -= 1
+    if keys[pygame.K_RIGHT]:
+       playerImg_rect.x += 1
+    if keys[pygame.K_UP]:
+       playerImg_rect.y -= 1
+    if keys[pygame.K_DOWN]:            
+       playerImg_rect.y += 1
+
+
+
+    pygame.display.update()
+    clock.tick(60)
+
+
+
+2nd
+
+import pygame
+from sys import exit
+
+
+pygame.init()
+screen = pygame.display.set_mode((470,553))
+pygame.display.set_caption("Jerlyn Game")
+clock = pygame.time.Clock()
+testfonts = pygame.font.Font(None, 30)
+
+
+bg = pygame.image.load('Pacpac.jpg')
+playerImg = pygame.image.load('player.png').convert_alpha()
+playerImg_rect = playerImg.get_rect(topleft = (45,68))
+
+
+enemy1 = pygame.image.load('enemy1.jpg')
+enemy2 = pygame.image.load('enemy2.png').convert_alpha()
+enemy3 = pygame.image.load('enemy3.jpg')
+
+texttSurface = testfonts.render('PACMAN',False,'purple')
+
+running = True
+
+while running:
+
+    screen.fill(('purple')) 
+
+
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            pygame.quit()
+            exit()
+
+
+    screen.blit(bg,(1,0))
+    screen.blit(playerImg, playerImg_rect)
+    screen.blit(enemy1,(200,259))
+    screen.blit(enemy2,(230,259))
+    screen.blit(enemy3,(258,259))
+    screen.blit(texttSurface,(198,527))
+
+
+#pacman move
+    for event in pygame.event.get():
+        run = False
+
+    keys = pygame.key.get_pressed()
+   
+    if keys[pygame.K_LEFT]:
+       playerImg_rect.x -= 2
+    if keys[pygame.K_RIGHT]:
+       playerImg_rect.x += 1
+    if keys[pygame.K_UP]:
+       playerImg_rect.y -= 1
+    if keys[pygame.K_DOWN]:            
+       playerImg_rect.y += 1
+
+#enemy move   
+def checkEnemy1Events(self):
+        for enemy1 in self.enemy1:
+            if self.player.collideEnemy1(enemy1):
+                    self.player.visible = False
+                    enemy1.visible = False 
+                    self.enemy1.updatePoints()
+                    self.pause.setPause(pauseTime=1, func=self.showEntities)
+                    self.updateScore(enemy1.points)                  
+                    self.textgroup.addText(str(enemy1.points), ('WHITE'), enemy1.position.x, enemy2.position.y, 8, time=1)
+                    enemy1.startSpawn()  
+
+            if self.player.alive:
+                    self.lives -=  1
+                    self.lifesprites.removeImage()
+                    self.player.die()               
+                    self.enemy1.hide()
+            if self.lives <= 0:
+                self.textgroup.showText('GAMEOVER')
+                self.pause.setPause(pauseTime=3, func=self.restartGame)
+            else:
+                self.pause.setPause(pauseTime=3, func=self.resetLevel)
+
+def update(self):
+        dt = self.clock.tick(30) / 1000.0
+        self.textgroup.update(dt)
+        if not self.pause.paused:
+            self.enemy1.update(dt)      
+            self.checkEnemy1Events()
+         
+        if self.player.alive:
+            if not self.pause.paused:
+                self.player.update(dt)
+        else:
+            self.player.update(dt)
+
+        if self.flashBG:
+            self.flashTimer += dt
+            if self.flashTimer >= self.flashTime:
+                self.flashTimer = 0
+                if self.background == self.background_norm:
+                    self.background = self.background_flash
+                else:
+                    self.background = self.background_norm
+
+        afterPauseMethod = self.pause.update(dt)
+        if afterPauseMethod is not None:
+            afterPauseMethod()
+        self.checkEvents()
+        self.render()
+    
+
+
+
+pygame.display.update()
+clock.tick(60)
+

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Jerlyn</title>
+        <link rel="stylesheet" href="IT 307.css">
+        <link rel="stylesheet" href="csss/style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        
+        <div class="header">
+            <div class="site-title-container">
+                <img src="C:/Users/63951/Downloads/Jerlyn/Assets for Web/Logo.png" alt="Site Logo">
+                <p class="site-title">Codescape</p>
+            </div>
+
+            <div class="menu">
+                <a href="#">Home</a>
+                <a href="#about">About</a>   <!-- Smooth scroll to About section -->
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+                <a href="#hire-me-section" class="hire-me">Hire Me</a>
+            </div>
+        </div> 
+        
+        
+
+        <!-- Hero Section -->
+         <div class="hero-container">
+             <div class="hero-left">
+                <img src="C:/Users/63951/Downloads/Jerlyn/Assets for Web/small logo.jpg" alt=""></img>
+            </div> 
+            <div class="hero-right">
+                <h1 class="hero-heading">My <br> Portfolio </h1>
+                <p class="hero-sub-heading"> A student from WCC Antipolo Campus</p>
+                <div class="hero-btn-container">
+                    <button class="more-about-btn" onclick="scrollToAbout()">More About Me</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- About Me Section -->
+         <div id="about" class="about-section">
+            <div class="about-container">
+                <div class="about-image">
+                    <img src="C:/Users/63951/Downloads/Jerlyn/Assets for Web/small logo 2.jpg" alt="Jerlyn">
+                </div>
+                <div class="about-text">
+                    <h2>About Me</h2>
+                    <p>Hello! I'm Jerlyn from World Citi College Antipolo Campus.</p>
+                    <p>I'm currently a 3rd-year student taking a Bachelor in Information Technology Degree.</p>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Projects Section -->
+         <div id="projects" class="projects-section">
+            <h2>My Projects</h2>
+            <p>Here are some of the projects I’ve worked on.</p>
+            <div class="projects-container">
+                <div class="project-card">
+                    <h3>Project 1</h3>
+                    <p>Prelim</p>
+                </div>
+
+                <div class="project-card">
+            <h3>Project 2</h3>
+            <p>Midterm</p>
+        </div>
+
+        <div class="project-card">
+            <h3>Project 3</h3>
+            <p>Finals</p>
+        </div>
+    </div>
+</div>
+
+        <!-- Contact Section -->
+         <div id="contact" class="contact-section">
+            <h2>Contact Me!</h2>
+            <p>Let's connect! Feel free to reach out.</p>
+            <div class="contact-container">
+                <div class="Contact-card">
+                    <h4> Contact number:</h4>
+                    <p>09123456789<p>
+                </div>
+
+                <div class="Email-container">
+                    <div class="Email-card">
+                        <h4>Email Address:</h4>
+                        <p>lyn@gmail.com</p>
+                    </div>
+                </div> 
+            </div>
+        </div>
+
+        <!-- Hire Me Section -->
+         <div id="hire-me-section" class="hire-me-section">
+            <h2>Lets collaborate and bring your ideas to life!</h2>
+            <button class="hire-me-btn">Hire Me!</button>
+        </div>
+
+        <!-- Footer Section -->
+         <footer class="footer">
+            <div class="footer-container">
+                <p>&copy; 2025 Jerlyn. All Rights Reserved.</p>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Contact</a>
+                </div>
+            </div>
+        </footer>
+
+        <!-- JavaScript for Smooth Scroll -->
+         <script> 
+         function scrollToAbout() {
+            document.getElementById("about").scrollIntoView({ behavior: 'smooth' });
+            }
+            </script>
+            <script src="script.js"></script>
+
+
+         <!--mobile reponsive --> 
+            <button class="menu-toggle">☰</button>
+
+        
+
+
+
+</body>
+</html>
